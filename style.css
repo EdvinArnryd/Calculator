@@ -1,3 +1,48 @@
 *{
     background-color: pink;
+    text-align: center;
+}
+
+
+
+.display{
+    background-color: rgba(0, 0, 0, 0.521);
+    height: 100px;
+    width: 400px;
+    margin: 0 auto;
+
+}
+
+.buttonContainer{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.row{
+    flex: 1;
+    display: flex;
+}
+
+.calcBtn{
+    flex: 1;
+    background-color: rgb(109, 71, 145);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 1000;
+    font-size: xx-large;
+}
+
+.operator{
+    background-color: rgb(155, 125, 184);
+}
+
+.equals{
+    background-color: rgb(160, 90, 226);
+}
+
+.dot{
+    background-color: rgb(68, 58, 77);
 }
