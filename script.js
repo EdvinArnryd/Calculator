@@ -1,7 +1,12 @@
 
-let firstNum = 0;
-let secondNum = 0;
+let firstNum = "";
+let secondNum = "";
 let operator = "";
+let operatorPressed = false;
+
+const numBtns = document.querySelectorAll(".numBtn");
+const operators = document.querySelectorAll(".operator");
+const display = document.querySelector(".display");
 
 function add(a,b){
     return a+b;
@@ -39,3 +44,51 @@ function operate(a, b, op)
             break;
     }
 }
+
+function UpdateNumVariables(val){
+    if(!operatorPressed)
+    {
+        firstNum += val;
+        UpdateDisplay(firstNum);
+    }
+    else
+    {
+        secondNum += val;
+        UpdateDisplay(secondNum);
+    }
+}
+
+function UpdateDisplay(val){
+    display.textContent = val;
+}
+
+function SetOperator(val)
+{
+    operator = val;
+    if(firstNum != "0")
+    {
+        operatorPressed = true;
+    }
+}
+
+function SetUpOperatorBtns() {
+    for(let i = 0; i < operators.length; i++)
+    {
+        operators[i].addEventListener("click", () => SetOperator(operators[i].textContent));
+    }
+}
+
+function SetUpNumBtns() {
+    for(let i = 0; i < numBtns.length; i++)
+    {
+        numBtns[i].addEventListener("click", () => UpdateNumVariables(numBtns[i].textContent));
+    }
+}
+
+function StartFunction()
+{
+    SetUpNumBtns();
+    SetUpOperatorBtns();
+}
+
+StartFunction();
