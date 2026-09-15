@@ -5,23 +5,29 @@ let operator = "";
 let operatorPressed = false;
 
 const numBtns = document.querySelectorAll(".numBtn");
-const operators = document.querySelectorAll(".operator");
+const operatorBtns = document.querySelectorAll(".operator");
+const equalsBtn = document.querySelector(".equalsBtn");
+const clearBtn = document.querySelector(".clearBtn");
 const display = document.querySelector(".display");
 
 function add(a,b){
-    return a+b;
+    let sum = Number(a)+Number(b);
+    return sum.toString();
 }
 
 function subtract(a,b){
-    return a-b;
+    let sum = Number(a)-Number(b);
+    return sum.toString();
 }
 
 function multiply(a,b){
-    return a*b;
+    let sum = Number(a)*Number(b);
+    return sum.toString();
 }
 
 function divide(a,b){
-    return a/b;
+    let sum = Number(a)/Number(b);
+    return sum.toString();
 }
 
 function operate(a, b, op)
@@ -29,16 +35,20 @@ function operate(a, b, op)
     switch(op)
     {
         case "+":
-            console.log(add(a,b));
+            firstNum = (add(a,b));
+            UpdateDisplay(firstNum);
             break;
         case "-":
-            console.log(subtract(a,b));
+            firstNum = (subtract(a,b));
+            UpdateDisplay(firstNum);
             break;
         case "*":
-            console.log(multiply(a,b));
+            firstNum = (multiply(a,b));
+            UpdateDisplay(firstNum);
             break;
         case "/":
-            console.log(divide(a,b));
+            firstNum = (divide(a,b));
+            UpdateDisplay(firstNum);
             break;
         default:
             break;
@@ -58,23 +68,45 @@ function UpdateNumVariables(val){
     }
 }
 
-function UpdateDisplay(val){
-    display.textContent = val;
+function UpdateDisplay(string){
+    display.textContent = string;
 }
 
-function SetOperator(val)
+function SetOperator(op)
 {
-    operator = val;
+    operator = op;
+    secondNum = "";
     if(firstNum != "0")
     {
         operatorPressed = true;
     }
 }
 
-function SetUpOperatorBtns() {
-    for(let i = 0; i < operators.length; i++)
+function Equals()
+{
+    if(firstNum, secondNum == "")
     {
-        operators[i].addEventListener("click", () => SetOperator(operators[i].textContent));
+        console.log("Equals Error");
+    }
+    else
+    {
+        operate(firstNum, secondNum, operator)
+    }
+}
+
+function Clear()
+{
+    firstNum = "";
+    secondNum = "";
+    operatorPressed = false;
+    UpdateDisplay("");
+}
+
+// Button Setup Functions
+function SetUpOperatorBtns() {
+    for(let i = 0; i < operatorBtns.length; i++)
+    {
+        operatorBtns[i].addEventListener("click", () => SetOperator(operatorBtns[i].textContent));
     }
 }
 
@@ -85,10 +117,22 @@ function SetUpNumBtns() {
     }
 }
 
+function SetUpEqualsBtn()
+{
+    equalsBtn.addEventListener("click", Equals);
+}
+
+function SetUpClearBtn() {
+    clearBtn.addEventListener("click", Clear);
+}
+
+// Start Function
 function StartFunction()
 {
     SetUpNumBtns();
     SetUpOperatorBtns();
+    SetUpClearBtn();
+    SetUpEqualsBtn();
 }
 
 StartFunction();
