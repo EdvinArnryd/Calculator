@@ -3,6 +3,19 @@
     text-align: center;
 }
 
+.calculator{
+    width: 450px;
+    height: 525px;
+    margin: 0 auto;
+    margin-top: 200px;
+    background-color: rgb(122, 122, 122);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .display{
     background-color: rgba(0, 0, 0, 0.521);
     height: 100px;
@@ -13,6 +26,7 @@
     font-size: 5em;
     font-weight: 1000;
     text-align: right;
+    border-radius: 10px;
 }
 
 .buttonContainer{
@@ -27,6 +41,7 @@
 .row{
     flex: 1;
     display: flex;
+    background-color: rgb(122, 122, 122);
 }
 
 .calcBtn{
@@ -35,6 +50,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: 1000;
     font-size: xx-large;
+    border-radius: 10px;
 }
 
 .operator{

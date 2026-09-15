@@ -53,6 +53,7 @@ function operate(a, b, op)
         default:
             break;
     }
+    secondNum = "";
 }
 
 function UpdateNumVariables(val){
@@ -75,10 +76,15 @@ function UpdateDisplay(string){
 function SetOperator(op)
 {
     operator = op;
-    secondNum = "";
+    //secondNum = "";
     if(firstNum != "0")
     {
         operatorPressed = true;
+    }
+
+    if(secondNum != "0")
+    {
+        Equals();
     }
 }
 
